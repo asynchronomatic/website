@@ -1,0 +1,12 @@
+{{ $img := "" }}
+{{ with .Params.image }}{{ $img = . | relURL }}{{ end }}
+<section class="hero"{{ with $img }} style="--hero-image: url('{{ . }}')"{{ end }}>
+  <div class="hero-inner">
+    {{ with .Params.eyebrow }}<p class="eyebrow">{{ . }}</p>{{ end }}
+    <h1>{{ .Title }}</h1>
+    {{ with .Plain }}<p class="hero-tag">{{ . | htmlUnescape | strings.TrimSpace }}</p>{{ end }}
+    {{ with .Params.actions }}
+    <p class="hero-actions">{{ partial "home/actions.html" . }}</p>
+    {{ end }}
+  </div>
+</section>

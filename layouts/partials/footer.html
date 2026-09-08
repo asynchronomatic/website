@@ -1,0 +1,17 @@
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="{{ `images/logo.svg` | relURL }}" width="28" height="28" alt="">
+      <div>
+        <p class="footer-name">Speakeasy</p>
+        <p class="footer-tag">A private mesh for local models.</p>
+      </div>
+    </div>
+    <div class="footer-links">
+      <a href="{{ `docs/` | relURL }}">Docs</a>
+      <a href="{{ `docs/quickstart/` | relURL }}">Quick start</a>
+      <a href="{{ site.Params.github }}" rel="noopener">GitHub</a>
+    </div>
+    <p class="footer-meta">{{ site.Params.org }} · MIT (see the <a href="{{ site.Params.github }}">product repo</a>)</p>
+  </div>
+</footer>

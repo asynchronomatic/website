@@ -1,0 +1,38 @@
+{{ define "main" }}
+<div class="docs-layout">
+  {{ partial "docs-nav.html" . }}
+  <article class="docs-body">
+    <header class="page-intro">
+      <p class="eyebrow"><a href="{{ `docs/` | relURL }}">Documentation</a></p>
+      <h1>{{ .Title }}</h1>
+      {{ with .Params.lead }}<p class="lead">{{ . }}</p>{{ end }}
+    </header>
+    {{ if gt (len .TableOfContents) 32 }}
+    <div class="on-this-page">
+      <p class="docs-nav-title">On this page</p>
+      {{ .TableOfContents }}
+    </div>
+    {{ end }}
+    <div class="prose">
+      {{ .Content }}
+    </div>
+    <nav class="docs-pager" aria-label="Docs pagination">
+      {{ $pages := (where site.RegularPages "Section" "docs").ByWeight }}
+      {{ range $i, $p := $pages }}
+        {{ if eq $p.RelPermalink $.RelPermalink }}
+          {{ if gt $i 0 }}
+            {{ $prev := index $pages (sub $i 1) }}
+            <a class="pager-prev" href="{{ $prev.RelPermalink }}"><span>Previous</span>{{ $prev.Title }}</a>
+          {{ else }}
+            <span></span>
+          {{ end }}
+          {{ if lt (add $i 1) (len $pages) }}
+            {{ $next := index $pages (add $i 1) }}
+            <a class="pager-next" href="{{ $next.RelPermalink }}"><span>Next</span>{{ $next.Title }}</a>
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    </nav>
+  </article>
+</div>
+{{ end }}

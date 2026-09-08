@@ -1,0 +1,10 @@
+{{ define "main" }}
+{{ with site.GetPage "/home" }}
+  {{ range .Pages.ByWeight }}
+    {{ $page := . }}
+    {{ with $page.Params.layout }}
+      {{ partial (printf "home/%s.html" .) $page }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+{{ end }}

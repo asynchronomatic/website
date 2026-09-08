@@ -1,0 +1,69 @@
+baseURL = "https://asynchronomatic.github.io/SpeakeasyHugo/"
+languageCode = "en-us"
+title = "Speakeasy"
+enableGitInfo = false
+enableRobotsTXT = true
+disableKinds = ["taxonomy", "term", "RSS"]
+
+[params]
+  description = "Share local Ollama models with a private group over a libp2p mesh, behind one OpenAI- and Ollama-compatible HTTP endpoint."
+  tagline = "Share local Ollama models with a private group, behind one OpenAI-compatible endpoint."
+  github = "https://github.com/asynchronomatic/speakeasy"
+  org = "Asynchronomatic"
+  defaultListen = ":4080"
+  adminPort = 4002
+  relayPort = 4001
+
+[markup.goldmark.renderer]
+  unsafe = false
+
+[markup.highlight]
+  noClasses = false
+  guessSyntax = true
+  tabWidth = 2
+
+[[menus.main]]
+  name = "Docs"
+  pageRef = "/docs/"
+  weight = 10
+[[menus.main]]
+  name = "GitHub"
+  url = "https://github.com/asynchronomatic/speakeasy"
+  weight = 20
+
+[[menus.docs]]
+  name = "Overview"
+  pageRef = "/docs/"
+  weight = 1
+[[menus.docs]]
+  name = "Install"
+  pageRef = "/docs/install/"
+  weight = 10
+[[menus.docs]]
+  name = "Quick start"
+  pageRef = "/docs/quickstart/"
+  weight = 20
+[[menus.docs]]
+  name = "How it works"
+  pageRef = "/docs/how-it-works/"
+  weight = 30
+[[menus.docs]]
+  name = "Configuration"
+  pageRef = "/docs/configuration/"
+  weight = 40
+[[menus.docs]]
+  name = "Usage"
+  pageRef = "/docs/usage/"
+  weight = 50
+[[menus.docs]]
+  name = "Dashboard"
+  pageRef = "/docs/dashboard/"
+  weight = 60
+[[menus.docs]]
+  name = "CLI"
+  pageRef = "/docs/cli/"
+  weight = 70
+[[menus.docs]]
+  name = "API"
+  pageRef = "/docs/api/"
+  weight = 80

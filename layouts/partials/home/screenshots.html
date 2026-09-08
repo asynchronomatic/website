@@ -1,0 +1,16 @@
+<section class="section screenshots">
+  <div class="section-inner">
+    {{ partial "home/section-head.html" . }}
+    <div class="shot-grid">
+      {{ range .RegularPages.ByWeight }}
+      {{ $page := . }}
+      <figure>
+        {{ with $page.Params.image }}
+        <img src="{{ . | relURL }}" alt="{{ $page.Params.alt | default $page.Title }}" loading="lazy">
+        {{ end }}
+        {{ with $page.Content }}<figcaption>{{ . }}</figcaption>{{ end }}
+      </figure>
+      {{ end }}
+    </div>
+  </div>
+</section>
