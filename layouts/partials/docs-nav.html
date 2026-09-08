@@ -1,0 +1,11 @@
+<nav class="docs-nav" aria-label="Docs">
+  <p class="docs-nav-title">Docs</p>
+  <ul>
+    {{ $here := .RelPermalink }}
+    {{ range site.Menus.docs }}
+    <li>
+      <a href="{{ .URL }}"{{ if or (eq $here .URL) (and .Page (eq $here .Page.RelPermalink)) }} aria-current="page"{{ end }}>{{ .Name }}</a>
+    </li>
+    {{ end }}
+  </ul>
+</nav>

@@ -1,0 +1,16 @@
+<section class="section">
+  <div class="section-inner">
+    {{ partial "home/section-head.html" . }}
+    <div class="{{ .Params.grid_class | default `feature-grid` }}">
+      {{ range .RegularPages.ByWeight }}
+      <article class="{{ $.Params.card_class | default `feature-card` }}">
+        <h3>{{ .Title }}</h3>
+        {{ .Content }}
+      </article>
+      {{ end }}
+    </div>
+    {{ with .Content }}
+    <div class="how-note">{{ . }}</div>
+    {{ end }}
+  </div>
+</section>

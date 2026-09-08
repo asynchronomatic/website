@@ -1,0 +1,9 @@
+<section class="cta">
+  <div class="section-inner cta-inner">
+    <h2>{{ .Title }}</h2>
+    {{ .Content }}
+    {{ with .Params.actions }}
+    <p class="hero-actions">{{ partial "home/actions.html" . }}</p>
+    {{ end }}
+  </div>
+</section>
