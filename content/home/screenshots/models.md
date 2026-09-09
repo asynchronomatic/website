@@ -1,7 +1,7 @@
 ---
 title: Models view
 weight: 20
-image: images/model_view.png
+image: images/model_view.jpeg
 alt: "Models view: table of advertised models with nemotron-3.5-lightning expanded to specs, capabilities, and providing nodes"
 ---
 
