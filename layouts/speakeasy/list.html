@@ -1,9 +1,9 @@
 {{ define "main" }}
-{{ with site.GetPage "/house" }}
+{{ with site.GetPage "/speakeasy/home" }}
   {{ range .Pages.ByWeight }}
     {{ $page := . }}
     {{ with $page.Params.layout }}
-      {{ partial (printf "house/%s.html" .) $page }}
+      {{ partial (printf "home/%s.html" .) $page }}
     {{ end }}
   {{ end }}
 {{ end }}

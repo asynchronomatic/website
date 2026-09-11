@@ -2,6 +2,8 @@
 title: How it works
 weight: 30
 lead: "Admin, relay, local-first routing, and what never leaves the node."
+aliases:
+  - /docs/how-it-works/
 ---
 
 Speakeasy splits control plane and inference.

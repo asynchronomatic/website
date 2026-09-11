@@ -1,0 +1,227 @@
+.house-wordmark .async {
+  color: var(--teal);
+}
+
+.house-hero {
+  background:
+    linear-gradient(180deg, rgba(12, 10, 8, 0.88) 0%, rgba(12, 10, 8, 0.62) 42%, rgba(12, 10, 8, 0.94) 100%),
+    var(--hero-image) center 78% / cover no-repeat;
+}
+
+.house-hero .house-wordmark {
+  font-size: clamp(1.7rem, 5.5vw, 3.2rem);
+  letter-spacing: 0.1em;
+}
+
+.vision .section-inner {
+  min-width: 0;
+}
+
+.vision .section-head h2 {
+  max-width: 100%;
+}
+
+.vision-prose {
+  max-width: 44rem;
+  min-width: 0;
+}
+
+.vision-prose p {
+  margin: 0 0 1.15rem;
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  overflow-wrap: break-word;
+}
+
+.vision-prose p:first-child {
+  color: var(--text);
+  font-size: 1.12rem;
+}
+
+.vision-prose p:last-child { margin-bottom: 0; }
+
+.vision-prose strong {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.deco-frame {
+  position: relative;
+  margin: 0;
+  background: var(--bg-panel);
+  border: 1px solid var(--accent);
+  box-shadow: inset 0 0 0 6px var(--bg), inset 0 0 0 7px rgba(212, 175, 55, 0.35);
+}
+
+.deco-frame img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  object-position: center;
+}
+
+.duality-grid,
+.stack-grid,
+.manifesto-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.stack-grid,
+.manifesto-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.duality-card,
+.stack-card,
+.manifesto-card,
+.product-card {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  padding: 1.4rem 1.35rem 1.5rem;
+  position: relative;
+}
+
+.duality-card::before,
+.stack-card::before,
+.manifesto-card::before,
+.product-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+}
+
+.duality-card.is-async::before {
+  background: linear-gradient(90deg, transparent, var(--teal), transparent);
+}
+
+.duality-card h3,
+.stack-card h3,
+.manifesto-card h3,
+.product-card h3 {
+  font-size: 0.95rem;
+  margin-bottom: 0.6rem;
+}
+
+.duality-card.is-async h3,
+.manifesto-card.is-async h3 {
+  color: var(--teal);
+}
+
+.duality-card p,
+.stack-card p,
+.manifesto-card p,
+.product-card p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  overflow-wrap: break-word;
+}
+
+.house-figure .deco-frame,
+.manifesto .deco-frame {
+  margin-bottom: 1.5rem;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 28rem);
+  gap: 1.25rem;
+}
+
+.products-page .product-grid {
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+}
+
+.products-page .lead {
+  max-width: 40rem;
+}
+
+@media (max-width: 720px) {
+  .products-page .lead { max-width: none; }
+}
+
+.product-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.product-card:hover {
+  border-color: var(--accent);
+}
+
+.product-card:hover h3 {
+  color: var(--accent-hover);
+}
+
+.product-mark {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 0.9rem;
+  border: 1px solid var(--accent);
+  background: var(--bg-elevated);
+}
+
+.equation {
+  margin: 0 0 1.5rem;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: clamp(0.85rem, 2vw, 1.05rem);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.equation span {
+  color: var(--teal);
+}
+
+@media (max-width: 960px) {
+  .stack-grid,
+  .manifesto-grid { grid-template-columns: 1fr 1fr; }
+}
+
+.manifesto .section-head h2 {
+  max-width: 28ch;
+}
+
+@media (max-width: 720px) {
+  .house-hero {
+    background-size: auto, 160% auto;
+    background-position: center, center 90%;
+  }
+
+  .house-hero .house-wordmark {
+    font-size: 6.2vw;
+    letter-spacing: 0.04em;
+  }
+
+  .vision .section-head h2 {
+    letter-spacing: 0.08em;
+    font-size: 1.3rem;
+  }
+
+  .vision-prose {
+    max-width: 32ch;
+  }
+
+  .vision-prose p,
+  .vision-prose p:first-child {
+    font-size: 1rem;
+  }
+
+  .duality-grid,
+  .stack-grid,
+  .manifesto-grid,
+  .product-grid { grid-template-columns: 1fr; }
+
+  .deco-frame {
+    box-shadow: inset 0 0 0 4px var(--bg), inset 0 0 0 5px rgba(212, 175, 55, 0.35);
+  }
+}

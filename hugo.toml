@@ -1,15 +1,16 @@
 baseURL = "https://asynchronomatic.github.io/SpeakeasyHugo/"
 languageCode = "en-us"
-title = "Speakeasy"
+title = "Asynchromatic"
 enableGitInfo = false
 enableRobotsTXT = true
 disableKinds = ["taxonomy", "term", "RSS"]
 
 [params]
-  description = "Share local Ollama models with a private group over a libp2p mesh, behind one OpenAI- and Ollama-compatible HTTP endpoint."
-  tagline = "Share local Ollama models with a private group, behind one OpenAI-compatible endpoint."
+  description = "AI at scale, without the big guys. Software so a group can run intelligence on machines they already own."
+  tagline = "AI at scale, without the big guys."
   github = "https://github.com/asynchronomatic/speakeasy"
-  org = "Asynchronomatic"
+  githubOrg = "https://github.com/asynchronomatic"
+  org = "Asynchromatic"
   defaultListen = ":4080"
   adminPort = 4002
   relayPort = 4001
@@ -23,47 +24,55 @@ disableKinds = ["taxonomy", "term", "RSS"]
   tabWidth = 2
 
 [[menus.main]]
-  name = "Docs"
-  pageRef = "/docs/"
+  name = "Products"
+  pageRef = "/products/"
+  weight = 5
+[[menus.main]]
+  name = "Speakeasy"
+  pageRef = "/speakeasy/"
   weight = 10
+[[menus.main]]
+  name = "Docs"
+  pageRef = "/speakeasy/docs/"
+  weight = 20
 [[menus.main]]
   name = "GitHub"
   url = "https://github.com/asynchronomatic/speakeasy"
-  weight = 20
+  weight = 30
 
 [[menus.docs]]
   name = "Overview"
-  pageRef = "/docs/"
+  pageRef = "/speakeasy/docs/"
   weight = 1
 [[menus.docs]]
   name = "Install"
-  pageRef = "/docs/install/"
+  pageRef = "/speakeasy/docs/install/"
   weight = 10
 [[menus.docs]]
   name = "Quick start"
-  pageRef = "/docs/quickstart/"
+  pageRef = "/speakeasy/docs/quickstart/"
   weight = 20
 [[menus.docs]]
   name = "How it works"
-  pageRef = "/docs/how-it-works/"
+  pageRef = "/speakeasy/docs/how-it-works/"
   weight = 30
 [[menus.docs]]
   name = "Configuration"
-  pageRef = "/docs/configuration/"
+  pageRef = "/speakeasy/docs/configuration/"
   weight = 40
 [[menus.docs]]
   name = "Usage"
-  pageRef = "/docs/usage/"
+  pageRef = "/speakeasy/docs/usage/"
   weight = 50
 [[menus.docs]]
   name = "Dashboard"
-  pageRef = "/docs/dashboard/"
+  pageRef = "/speakeasy/docs/dashboard/"
   weight = 60
 [[menus.docs]]
   name = "CLI"
-  pageRef = "/docs/cli/"
+  pageRef = "/speakeasy/docs/cli/"
   weight = 70
 [[menus.docs]]
   name = "API"
-  pageRef = "/docs/api/"
+  pageRef = "/speakeasy/docs/api/"
   weight = 80

@@ -6,7 +6,7 @@ eyebrow: "Private mesh · Local models"
 image: images/speakeasy.jpg
 actions:
   - label: Get started
-    href: docs/quickstart/
+    href: speakeasy/docs/quickstart/
     class: btn-primary
   - label: View on GitHub
     href: https://github.com/asynchronomatic/speakeasy

@@ -1,0 +1,3 @@
+{{- $u := .Destination -}}
+{{- $github := strings.Contains $u "github.com" -}}
+<a href="{{ $u | safeURL }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ if $github }} target="_blank" rel="noopener"{{ end }}>{{ .Text | safeHTML }}</a>

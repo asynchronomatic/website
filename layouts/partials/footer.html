@@ -1,17 +1,32 @@
+{{ with site.GetPage "/footer" }}
 <footer class="site-footer">
   <div class="footer-inner">
     <div class="footer-brand">
-      <img src="{{ `images/logo.svg` | relURL }}" width="28" height="28" alt="">
+      {{ with .Params.logo }}
+      <img src="{{ . | relURL }}" width="28" height="28" alt="">
+      {{ end }}
       <div>
-        <p class="footer-name">Speakeasy</p>
-        <p class="footer-tag">A private mesh for local models.</p>
+        <p class="footer-name">{{ .Title }}</p>
+        {{ $tag := .Params.tag }}
+        {{ if and (eq $.Section "speakeasy") .Params.speakeasy_tag }}
+          {{ $tag = .Params.speakeasy_tag }}
+        {{ end }}
+        {{ with $tag }}<p class="footer-tag">{{ . }}</p>{{ end }}
       </div>
     </div>
     <div class="footer-links">
-      <a href="{{ `docs/` | relURL }}">Docs</a>
-      <a href="{{ `docs/quickstart/` | relURL }}">Quick start</a>
-      <a href="{{ site.Params.github }}" rel="noopener">GitHub</a>
+      {{ range .RegularPages.ByWeight }}
+      {{ $href := .Params.href | default .Params.url }}
+      {{ if $href }}
+      {{ $external := or .Params.external (strings.HasPrefix $href "http://") (strings.HasPrefix $href "https://") }}
+      {{ if not $external }}{{ $href = relURL $href }}{{ end }}
+      <a href="{{ $href }}"{{ if $external }} rel="noopener"{{ end }}{{ if strings.Contains $href "github.com" }} target="_blank"{{ end }}>{{ .Title }}</a>
+      {{ end }}
+      {{ end }}
     </div>
-    <p class="footer-meta">{{ site.Params.org }} · MIT (see the <a href="{{ site.Params.github }}">product repo</a>)</p>
+    {{ with .Content }}
+    <div class="footer-meta">{{ . }}</div>
+    {{ end }}
   </div>
 </footer>
+{{ end }}

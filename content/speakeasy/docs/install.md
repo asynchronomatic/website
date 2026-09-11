@@ -2,6 +2,8 @@
 title: Install
 weight: 10
 lead: "Prerequisites, build, and the files mesh init writes."
+aliases:
+  - /docs/install/
 ---
 
 ## Prerequisites
