@@ -1,9 +1,10 @@
 .hero {
   position: relative;
-  min-height: Min(88vh, 820px);
+  min-height: Min(56vh, 520px);
   display: flex;
   align-items: flex-end;
-  padding: 5rem 0 4.5rem;
+  padding: 3.25rem 0 2.75rem;
+  overflow-x: hidden;
   background:
     linear-gradient(180deg, rgba(12, 10, 8, 0.35) 0%, rgba(12, 10, 8, 0.82) 55%, var(--bg) 100%),
     var(--hero-image) center 30% / cover no-repeat;
@@ -11,21 +12,24 @@
 }
 
 .hero-inner {
+  position: relative;
+  z-index: 1;
   width: Min(var(--max), calc(100% - 2.5rem));
   margin-inline: auto;
+  min-width: 0;
 }
 
 .hero h1 {
-  font-size: clamp(2.6rem, 8vw, 5.2rem);
-  letter-spacing: 0.22em;
+  font-size: clamp(2rem, 6vw, 3.6rem);
+  letter-spacing: 0.16em;
   line-height: 1.05;
-  margin: 0 0 0.6rem;
+  margin: 0 0 0.5rem;
   text-shadow: 0 8px 32px rgba(0, 0, 0, 0.65);
 }
 
 .hero-tag {
   max-width: 34rem;
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   color: var(--text);
   margin: 0;
 }
@@ -202,10 +206,32 @@
 }
 
 @media (max-width: 720px) {
-  .hero { min-height: 72vh; align-items: center; padding: 6rem 0 3rem; }
+  .hero {
+    min-height: 48vh;
+    align-items: center;
+    padding: 4.5rem 0 2.25rem;
+    background-position: center 68%;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(12, 10, 8, 0.9) 0%, rgba(12, 10, 8, 0.5) 48%, transparent 78%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .hero h1 { font-size: 8vw; letter-spacing: 0.08em; }
+  .hero-tag { max-width: none; width: 100%; }
+  .hero-actions .btn { padding: 0.65rem 1rem; letter-spacing: 0.1em; }
+  .promise { padding-inline: 1.25rem; }
   .promise-grid { grid-template-columns: 1fr; padding: 1.25rem 0; }
-  .promise-grid p { border-right: none; border-bottom: 1px solid var(--border); padding: 0.6rem 0; }
+  .promise-grid p {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    padding: 0.75rem 0;
+  }
   .promise-grid p:last-child { border-bottom: none; }
   .feature-grid, .client-grid { grid-template-columns: 1fr; }
-  .section { padding: 3rem 0; }
+  .section { padding: 3rem 1.25rem; }
+  .section .section-inner { width: 100%; max-width: 100%; }
 }

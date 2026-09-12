@@ -3,6 +3,7 @@
 html {
   font-size: 18px;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 html, body {
@@ -25,6 +26,10 @@ body {
     radial-gradient(ellipse 90% 45% at 50% -18%, rgba(212, 175, 55, 0.12), transparent 58%),
     radial-gradient(ellipse 50% 35% at 100% 110%, rgba(139, 46, 58, 0.14), transparent 60%);
   background-attachment: fixed;
+}
+
+@media (max-width: 720px) {
+  body { background-attachment: scroll; }
 }
 
 main { flex: 1 0 auto; }
@@ -129,5 +134,5 @@ pre code {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 1.75rem;
+  margin-top: 1.25rem;
 }

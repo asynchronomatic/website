@@ -2,6 +2,8 @@
 title: Dashboard
 weight: 60
 lead: "Mesh, Nodes, Models, Chat, Admin, and Settings at /ui/."
+aliases:
+  - /docs/dashboard/
 ---
 
 The static UI lives in `web/` and is served at `http://<listen>/ui/` (also `/ui` and `/`). Default theme is **deco** (gold on near-black). Settings can switch to night, cyber, or clean on this node only.

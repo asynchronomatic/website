@@ -2,6 +2,8 @@
 title: Quick start
 weight: 20
 lead: "Init a node, redeem an invite, and start proxy or admin."
+aliases:
+  - /docs/quickstart/
 ---
 
 ## Commands

@@ -2,6 +2,8 @@
 title: Usage
 weight: 50
 lead: "Point Ollama CLI, OpenAI SDKs, and Open WebUI at the local proxy."
+aliases:
+  - /docs/usage/
 ---
 
 Replace `4080` with whatever you set in `proxy.listen`.

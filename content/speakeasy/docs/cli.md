@@ -2,6 +2,8 @@
 title: CLI
 weight: 70
 lead: "mesh for init, join, and process roles. admincli for invites and nodes."
+aliases:
+  - /docs/cli/
 ---
 
 ## mesh

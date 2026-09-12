@@ -4,7 +4,7 @@ layout: cta
 weight: 70
 actions:
   - label: Get started
-    href: docs/quickstart/
+    href: speakeasy/docs/quickstart/
     class: btn-primary
   - label: GitHub
     href: https://github.com/asynchronomatic/speakeasy

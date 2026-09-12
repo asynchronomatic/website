@@ -2,5 +2,5 @@
   {{ $href := .href | default .url }}
   {{ $external := or .external (strings.HasPrefix $href "http://") (strings.HasPrefix $href "https://") }}
   {{ if not $external }}{{ $href = relURL $href }}{{ end }}
-  <a class="btn {{ .class | default `btn-outline` }}" href="{{ $href }}"{{ if $external }} rel="noopener"{{ end }}>{{ .label }}</a>
+  <a class="btn {{ .class | default `btn-outline` }}" href="{{ $href }}"{{ if $external }} rel="noopener"{{ end }}{{ if strings.Contains $href "github.com" }} target="_blank"{{ end }}>{{ .label }}</a>
 {{ end }}

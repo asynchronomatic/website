@@ -1,16 +1,30 @@
 <header class="site-header">
   <div class="header-inner">
     <a class="brand" href="{{ site.Home.RelPermalink }}">
-      <img class="brand-mark" src="{{ `images/logo.svg` | relURL }}" width="32" height="32" alt="">
-      <span class="brand-name">Speakeasy</span>
+      <img class="brand-mark" src="{{ `images/logo-asynchromatic.svg` | relURL }}" width="32" height="32" alt="">
+      <span class="brand-name">Asynchromatic</span>
     </a>
     <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
       <span></span><span></span><span></span>
     </button>
-    <nav id="site-nav" class="site-nav" aria-label="Primary">
-      {{ $isDocs := eq .Section "docs" }}
-      <a href="{{ `docs/` | relURL }}"{{ if $isDocs }} aria-current="page"{{ end }}>Docs</a>
-      <a href="{{ site.Params.github }}" rel="noopener">GitHub</a>
+    <nav id="site-nav" class="site-nav{{ if .IsHome }} is-home-nav{{ end }}" aria-label="Primary">
+      {{ $isProducts := eq .Section "products" }}
+      {{ $isSpeakeasy := and (eq .Section "speakeasy") (ne .Type "docs") }}
+      {{ $isDocs := eq .Type "docs" }}
+      <div class="nav-drop">
+        <a class="nav-drop-trigger" href="{{ `products/` | relURL }}"{{ if $isProducts }} aria-current="page"{{ end }}>Products <span class="nav-drop-caret" aria-hidden="true"></span></a>
+        <ul class="nav-drop-menu">
+          <li><a href="{{ `speakeasy/` | relURL }}"{{ if $isSpeakeasy }} aria-current="page"{{ end }}>Speakeasy</a></li>
+        </ul>
+      </div>
+      {{ if not .IsHome }}
+      <a href="{{ `speakeasy/docs/` | relURL }}"{{ if $isDocs }} aria-current="page"{{ end }}>Docs</a>
+      {{ end }}
+      {{ if .IsHome }}
+      <a href="{{ site.Params.githubOrg | default `https://github.com/asynchronomatic` }}" target="_blank" rel="noopener">GitHub</a>
+      {{ else }}
+      <a href="{{ site.Params.github }}" target="_blank" rel="noopener">GitHub</a>
+      {{ end }}
     </nav>
   </div>
 </header>

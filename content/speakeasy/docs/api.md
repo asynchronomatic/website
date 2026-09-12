@@ -2,6 +2,8 @@
 title: API
 weight: 80
 lead: "Admin HTTP API, dashboard JSON, and peer-only mesh RPC."
+aliases:
+  - /docs/api/
 ---
 
 Secret for admin routes: `token` header or `Authorization: Bearer`.

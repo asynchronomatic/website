@@ -1,6 +1,6 @@
-# Speakeasy website
+# Asynchromatic website
 
-Public site for [asynchronomatic/speakeasy](https://github.com/asynchronomatic/speakeasy), built with [Hugo](https://gohugo.io/) (extended).
+Public site for [Asynchromatic](https://github.com/asynchronomatic), built with [Hugo](https://gohugo.io/) (extended). Speakeasy is the first product and lives at `/speakeasy/`.
 
 ## Run locally
 
@@ -20,21 +20,43 @@ hugo --minify
 
 Output is `public/`.
 
-## Homepage content
+## House homepage
 
-The landing page is assembled from Markdown under `content/home/`. Templates only provide layout; copy and cards live in the files:
+The landing page (`/`) is assembled from Markdown under `content/house/`. Templates only provide layout; copy and cards live in the files:
 
 | Path | Role |
 | --- | --- |
-| `content/home/hero.md` | Hero band |
-| `content/home/promise/*.md` | Three-up promise line |
-| `content/home/features/*.md` | Feature cards |
-| `content/home/screenshots/*.md` | Screenshot figures |
-| `content/home/how-it-works/*.md` | Numbered steps |
-| `content/home/clients/*.md` | Client cards (code + lists) |
-| `content/home/cta.md` | Closing CTA |
+| `content/house/hero.md` | House hero band |
+| `content/house/vision.md` | Brand vision |
+| `content/house/products/*.md` | Product cards |
+| `content/house/cta.md` | Closing CTA |
 
 Add a card by dropping another `.md` in the matching folder (`title`, `weight`, body). Section intro/eyebrow is the folder’s `_index.md`. These pages are not published at their own URLs.
+
+## Footer
+
+Site-wide footer copy and links live under `content/footer/` and are not published as pages.
+
+| Path | Role |
+| --- | --- |
+| `content/footer/_index.md` | Brand name, tags, and the MIT / repo line |
+| `content/footer/*.md` | Footer links (`title`, `weight`, `href`) |
+
+## Speakeasy homepage
+
+The product landing (`/speakeasy/`) is assembled the same way from `content/speakeasy/home/`:
+
+| Path | Role |
+| --- | --- |
+| `content/speakeasy/home/hero.md` | Hero band |
+| `content/speakeasy/home/promise/*.md` | Three-up promise line |
+| `content/speakeasy/home/features/*.md` | Feature cards |
+| `content/speakeasy/home/screenshots/*.md` | Screenshot figures |
+| `content/speakeasy/home/how-it-works/*.md` | Numbered steps |
+| `content/speakeasy/home/clients/*.md` | Client cards (code + lists) |
+| `content/speakeasy/home/cta.md` | Closing CTA |
+
+Docs live under `content/speakeasy/docs/` and publish at `/speakeasy/docs/`. Old `/docs/` URLs are aliases.
 
 ## Deploy
 

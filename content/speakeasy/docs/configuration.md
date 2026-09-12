@@ -2,6 +2,8 @@
 title: Configuration
 weight: 40
 lead: "Runtime settings live in config.yaml in the process working directory."
+aliases:
+  - /docs/configuration/
 ---
 
 There is no required environment variable for the proxy. `mesh init` writes a commented `config.yaml`. Do not commit a live admin secret.

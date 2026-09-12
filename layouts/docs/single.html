@@ -3,7 +3,7 @@
   {{ partial "docs-nav.html" . }}
   <article class="docs-body">
     <header class="page-intro">
-      <p class="eyebrow"><a href="{{ `docs/` | relURL }}">Documentation</a></p>
+      <p class="eyebrow"><a href="{{ `speakeasy/docs/` | relURL }}">Documentation</a></p>
       <h1>{{ .Title }}</h1>
       {{ with .Params.lead }}<p class="lead">{{ . }}</p>{{ end }}
     </header>
@@ -17,7 +17,7 @@
       {{ .Content }}
     </div>
     <nav class="docs-pager" aria-label="Docs pagination">
-      {{ $pages := (where site.RegularPages "Section" "docs").ByWeight }}
+      {{ $pages := (where site.RegularPages "Type" "docs").ByWeight }}
       {{ range $i, $p := $pages }}
         {{ if eq $p.RelPermalink $.RelPermalink }}
           {{ if gt $i 0 }}

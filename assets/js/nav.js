@@ -10,6 +10,18 @@
     });
   }
 
+  document.querySelectorAll(".nav-drop").forEach(function (drop) {
+    var trigger = drop.querySelector(".nav-drop-trigger");
+    if (!trigger) return;
+    trigger.setAttribute("aria-expanded", "false");
+    drop.addEventListener("mouseenter", function () {
+      trigger.setAttribute("aria-expanded", "true");
+    });
+    drop.addEventListener("mouseleave", function () {
+      trigger.setAttribute("aria-expanded", "false");
+    });
+  });
+
   document.querySelectorAll(".highlight").forEach(function (block) {
     if (block.querySelector(".copy-btn")) return;
     var btn = document.createElement("button");
