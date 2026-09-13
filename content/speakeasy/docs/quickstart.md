@@ -1,53 +1,51 @@
 ---
 title: Quick start
 weight: 20
-lead: "Init a node, redeem an invite, and start proxy or admin."
+lead: "Join with an invite, or stand up your own mesh."
 aliases:
   - /docs/quickstart/
 ---
 
-## Commands
+## For users
+
+You are here because someone invited you with an invite URL.
 
 ```bash
-# First machine (or any new checkout)
-./build/mesh init
+git clone https://github.com/asynchronomatic/speakeasy.git
+cd speakeasy
+make build
 
-# Join an existing mesh (redeem an invite, write membership into config.yaml)
-./build/mesh join <invite-url>
+# Once
+./build/speakeasy join <invite-url>
 
-# Member: proxy local Ollama onto the mesh
-./build/mesh proxy
-
-# Public host: membership API + circuit relay
-./build/mesh admin
-
-# Single host: admin + relay + proxy
-./build/mesh hybrid
+# After that
+./build/speakeasy proxy start
 ```
 
-`hybrid` is also accepted as `proxy+admin` or `standalone`.
-
-`mesh join` redeems the invite, writes mesh address / id / secret into `config.yaml`, then starts the proxy. If `config.yaml` already exists, the form asks before replacing membership fields.
-
-## Who runs what
-
-1. One host runs **admin** (HTTP membership API + circuit relay). It must be public or port-forwarded.
-2. That host (or anyone with the admin token) creates an invite from the dashboard Admin panel or `admincli`.
-3. Each member runs **`mesh init`**, then **`mesh join <invite-url>`**, with Ollama on the same machine if they will serve models.
-4. Clients talk only to the local proxy listen address.
+The dashboard is at `http://127.0.0.1:4080` (or whatever you set in `proxy.listen`).
 
 A node can join without exporting models: leave `providers` empty (or mark a provider `private: true`) and still use models advertised by peers.
 
+## Running your own mesh
+
+One host runs **admin/relay**. It must be public or port-forwarded. Then you create invite links and members join as above.
+
+See [Admin setup]({{< relref "admin" >}}) for seed/admin config, TLS on the admin API, and `admincli` invites.
+
+## Who runs what
+
+1. One host runs **admin/relay** (admin-only or hybrid admin+proxy).
+2. That host (or anyone with the admin token) creates an invite from the dashboard Admin panel or `admincli`.
+3. Each member runs **`speakeasy join <invite-url>`**, then **`speakeasy proxy start`**, with a local provider on that machine if they will serve models.
+4. Clients talk only to the local proxy listen address.
+
 ## Dashboard
 
-Open `http://127.0.0.1:<listen>/ui/`.
-
-- `listen` comes from `config.yaml` (`proxy.listen`).
-- If unset, the code default is `:4080`.
-- `mesh init` pre-fills that default; you can change it in the form (the form text mentions `:8080` as an example).
+Open `http://127.0.0.1:<listen>/`. Default listen is `:4080`.
 
 ## Next
 
+- [Admin setup]({{< relref "admin" >}}) — seed node, TLS, invites
 - [How it works]({{< relref "how-it-works" >}}) — routing and NAT
 - [Configuration]({{< relref "configuration" >}}) — `config.yaml` fields
 - [Usage]({{< relref "usage" >}}) — Ollama, OpenAI, Open WebUI

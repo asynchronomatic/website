@@ -6,13 +6,13 @@ aliases:
   - /docs/configuration/
 ---
 
-There is no required environment variable for the proxy. `mesh init` writes a commented `config.yaml`. Do not commit a live admin secret.
+There is no required environment variable for the proxy. Config is `config.yaml` in the process working directory (`config.example.yaml` in the product repo is the commented sample). Do not commit a live admin secret.
 
 A commented sample also lives in the product repo under `examples/config.example.yaml`.
 
-## What init writes
+## Shape of config.yaml
 
-`mesh init` produces YAML of this shape (field names as written by the form):
+A typical file looks like this (field names as used at runtime):
 
 ```yaml
 proxy:
@@ -38,7 +38,20 @@ providers:
     models: []
 ```
 
-`mesh join <invite-url>` updates membership (mesh server URL, mesh id, secret) after redeeming the invite.
+`speakeasy join <invite-url>` updates membership (mesh server URL, mesh id, secret) after redeeming the invite.
+
+## Admin host (TLS)
+
+For a public seed node, put nginx (or similar) in front of `admin_port` and set `admin.address` to the HTTPS URL members will use. See [Admin setup]({{< relref "admin" >}}).
+
+```yaml
+admin:
+  address: "https://myhost.mydomain.com"
+  secret: "mysekrit"
+  admin_port: 4002
+  relay_port: 4001
+  public_address: "auto"
+```
 
 Listen defaults: if `proxy.listen` is empty at load time, the binary uses `:4080`.
 
@@ -64,4 +77,4 @@ Remote Ollama needs `OLLAMA_HOST=0.0.0.0:11434` (or equivalent) on that host.
 
 Admin state is stored in `admin.jkv` unless `ADMIN_DB_PATH` is set.
 
-Theme for the dashboard can be `night`, `deco` (default), `cyber`, or `clean`.
+Theme for the dashboard can be Deco (default), Clean, Cyber, or Dark.

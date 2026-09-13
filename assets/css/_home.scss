@@ -99,9 +99,15 @@
   font-size: 0.95rem;
 }
 
+.screenshots .section-inner {
+  width: Min(1280px, calc(100% - 2.5rem));
+  max-width: calc(100vw - 2.5rem);
+}
+
 .shot-grid {
   display: grid;
-  gap: 2rem;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
 }
 
 .shot-grid figure {
@@ -111,6 +117,7 @@
 }
 
 .shot-grid img {
+  display: block;
   width: 100%;
   border-bottom: 1px solid var(--border);
 }

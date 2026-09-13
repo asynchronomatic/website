@@ -5,4 +5,4 @@ weight: 50
 eyebrow: How it works
 ---
 
-Single machine? `mesh hybrid` (also `proxy+admin` / `standalone`) runs admin, relay, and proxy together.
+Joining someone else's mesh? You only need an invite — see [Quick start]({{< relref "/speakeasy/docs/quickstart" >}}). Standing up the door is [Admin setup]({{< relref "/speakeasy/docs/admin" >}}).

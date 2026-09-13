@@ -1,8 +1,8 @@
 ---
-title: Mesh view
+title: Welcome
 weight: 10
-image: images/mesh_view.png
-alt: "Mesh view: three reachable nodes on a circular graph, liquid.snake selected with its loaded models"
+image: images/welcome-view.jpeg
+alt: "Welcome panel: OpenAI base URL, Open WebUI steps, and a curl snippet for this proxy"
 ---
 
-The Mesh panel draws members and how they are connected (direct vs relay). Click a node for the models on that peer.
+Copy-paste the OpenAI base URL for this node, Open WebUI steps, and a curl snippet.

@@ -1,28 +1,37 @@
 ---
 title: CLI
 weight: 70
-lead: "mesh for init, join, and process roles. admincli for invites and nodes."
+lead: "speakeasy for join, proxy, and admin. admincli for invites and nodes."
 aliases:
   - /docs/cli/
 ---
 
-## mesh
+## speakeasy
 
-Built as `build/mesh` (`cmd/mesh`).
-
-```text
-mesh init | join <invite-url> | proxy | admin | hybrid(proxy+admin)
-```
+Built as `build/speakeasy`.
 
 | Command | What it does |
 | --- | --- |
-| `init` | Interactive huh form. Writes `config.yaml`, creates `node.key` / `relay.key` if missing. |
-| `join <invite-url>` | Redeems the invite as this node’s peer ID, writes mesh membership into `config.yaml`, then starts **proxy**. |
-| `proxy` | Local OpenAI/Ollama proxy + UI, joined to the mesh. |
-| `admin` | Membership HTTP API + circuit relay. |
-| `hybrid` | Admin + relay + proxy. Aliases: `proxy+admin`, `standalone`. |
+| `join <invite-url>` | Redeem the invite, write membership into `config.yaml`. Run once per machine. |
+| `proxy start` | Local OpenAI/Ollama proxy + UI, joined to the mesh. |
+| `admin init` | Interactive config for a seed/admin node. Writes `config.yaml`. |
+| `admin start` | Membership HTTP API + circuit relay. |
 
-`init` and `join` honor `ACCESSIBLE=1` for screen-reader prompts.
+Member path (see [Quick start]({{< relref "quickstart" >}})):
+
+```bash
+./build/speakeasy join <invite-url>
+./build/speakeasy proxy start
+```
+
+Seed/admin path (see [Admin setup]({{< relref "admin" >}})):
+
+```bash
+./build/speakeasy admin init
+./build/speakeasy admin start
+```
+
+`join` honors `ACCESSIBLE=1` for screen-reader prompts.
 
 ## admincli
 
@@ -35,17 +44,9 @@ Built as `build/admincli` (`cmd/admincli`). Global flags:
 | `--mesh` / `-m` | | `default` |
 
 ```bash
-admincli --token "$SECRET" admin invite --name friend --lifetime 24h
+admincli --addr https://myhost.mydomain.com --token "$SECRET" admin invite --name friend
 admincli --token "$SECRET" admin delete-invite INVITE_ID
 admincli --token "$SECRET" admin kick PEER_ID
-
-admincli --token "$SECRET" node list
-admincli --token "$SECRET" node register --name kitchen --id PEER_ID
-admincli --token "$SECRET" node unregister PEER_ID
-admincli --token "$SECRET" node relay
-
-admincli meshes
-admincli redeem INVITE_URL --id PEER_ID --name kitchen
 ```
 
-`redeem` is public (no admin token). `mesh join` already does this for you and then starts the proxy.
+Use the HTTPS admin address when the API is behind a reverse proxy.

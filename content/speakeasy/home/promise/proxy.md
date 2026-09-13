@@ -1,6 +1,6 @@
 ---
-title: Local proxy
+title: P2P, not the relay
 weight: 30
 ---
 
-Clients talk to your local proxy — never a friend’s Ollama.
+Chat stays peer-to-peer and encrypted (QUIC). The relay is only for setup and hole punching — it never carries inference.

@@ -1,4 +1,4 @@
-baseURL = "https://asynchronomatic.github.io/SpeakeasyHugo/"
+baseURL = "https://asynchronomatic.com/"
 languageCode = "en-us"
 title = "Asynchromatic"
 enableGitInfo = false
@@ -52,6 +52,10 @@ disableKinds = ["taxonomy", "term", "RSS"]
   name = "Quick start"
   pageRef = "/speakeasy/docs/quickstart/"
   weight = 20
+[[menus.docs]]
+  name = "Admin setup"
+  pageRef = "/speakeasy/docs/admin/"
+  weight = 25
 [[menus.docs]]
   name = "How it works"
   pageRef = "/speakeasy/docs/how-it-works/"

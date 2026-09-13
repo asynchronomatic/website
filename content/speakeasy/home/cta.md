@@ -12,4 +12,4 @@ actions:
     external: true
 ---
 
-Build the binary, run `mesh init`, and join a private group.
+Join with an invite, or stand up your own mesh.

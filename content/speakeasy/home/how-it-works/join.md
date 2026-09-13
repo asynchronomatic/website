@@ -1,6 +1,6 @@
 ---
-title: Init, then join
+title: Join with an invite
 weight: 20
 ---
 
-Each member runs `mesh init`, then `mesh join <invite-url>` (or fills mesh address and secret by hand), then `mesh proxy` next to a local Ollama.
+Each member runs `./build/speakeasy join <invite-url>` once, then `./build/speakeasy proxy start`. Ollama (or another local provider) stays on that machine if they will serve models.

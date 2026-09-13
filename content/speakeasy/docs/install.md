@@ -1,7 +1,7 @@
 ---
 title: Install
 weight: 10
-lead: "Prerequisites, build, and the files mesh init writes."
+lead: "Prerequisites, build, and the files the binary writes."
 aliases:
   - /docs/install/
 ---
@@ -23,13 +23,11 @@ go mod download
 make build
 ```
 
-`make build` runs tests, then writes `build/mesh` and `build/admincli`. Cross-compile with `make build-all` (Windows amd64, Linux amd64/arm64, Darwin arm64).
-
-Makefile shortcuts: `make run-proxy`, `make run-admin`, `make run-hybrid`.
+`make build` writes `build/speakeasy` and `build/admincli`. Cross-compile with `make build-all` (Windows amd64, Linux amd64/arm64, Darwin arm64).
 
 ## First-run files
 
-Run the binary from a directory that will hold config and keys. `mesh init` writes:
+Run the binary from a directory that will hold config and keys. `speakeasy join` (members) or `speakeasy admin init` (seed node) writes:
 
 | File | Purpose |
 | --- | --- |

@@ -10,7 +10,7 @@ Speakeasy splits control plane and inference.
 
 ## Roles
 
-**Admin** is the door: HTTP membership API plus a libp2p Circuit Relay v2. It tracks who is allowed in, hands out relay multiaddrs, and issues invite links. It does **not** proxy chat tokens. Application traffic is not hairpinned through the admin HTTP API.
+**Admin** is the door: HTTP membership API plus a libp2p Circuit Relay v2. It tracks who is allowed in, hands out relay multiaddrs, and issues invite links. It does **not** proxy chat tokens. Application traffic is peer-to-peer over encrypted QUIC. The relay is only for setup and hole punching — **no inference data goes through the relay or the admin HTTP API**.
 
 **Proxy** sits next to Ollama (or several Ollama processes). It:
 
@@ -19,11 +19,11 @@ Speakeasy splits control plane and inference.
 3. Serves a local OpenAI- and Ollama-shaped HTTP API plus `/ui/`
 4. Routes each request to a local provider first, then to a mesh peer that listed that model
 
-**Hybrid** (`mesh hybrid`) runs admin, relay, and proxy on one machine — useful for a single public host or a lab box.
+**Hybrid** runs admin, relay, and proxy on one machine — useful for a single public host or a lab box. A seed node can also run **admin only** (see [Admin setup]({{< relref "admin" >}})).
 
 ## Local-first routing
 
-For `/api/chat`, `/v1/chat/completions`, `/v1/responses` (and related generate/embed paths), the proxy peeks at the JSON `model` field:
+For `/api/chat`, `/v1/chat/completions`, `/v1/embeddings`, `/v1/messages` (and related generate/embed paths), the proxy peeks at the JSON `model` field:
 
 1. If a **local** provider has the model, reverse-proxy there.
 2. Else pick a **mesh peer** that advertised it and forward over libp2p.
@@ -35,7 +35,7 @@ Weights stay on the owner’s disk. Peers only see what you export.
 
 `model_discovery: pinned` advertises only models currently loaded in Ollama. Idle weights are not pulled across the mesh. Pair with `OLLAMA_KEEP_ALIVE=-1` on the Ollama side if you want a loaded model to stay loaded.
 
-`all` and `whitelist` appear in `mesh init` and in config comments; pinned is the discovery mode that is implemented today.
+`all` and `whitelist` appear in config comments; pinned is the discovery mode that is implemented today.
 
 ## NAT and LAN
 
