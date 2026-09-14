@@ -1,5 +1,5 @@
 ---
 title: Speakeasy
-description: "Share local Ollama models with a private group over a libp2p mesh, behind one OpenAI- and Ollama-compatible HTTP endpoint."
-tagline: "Share local Ollama models with a private group, behind one OpenAI-compatible endpoint."
+description: "A private club for local inference. Share models with a trusted group over a libp2p mesh, behind one OpenAI-compatible endpoint."
+tagline: "A private club for local inference."
 ---

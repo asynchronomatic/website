@@ -14,4 +14,4 @@ actions:
     external: true
 ---
 
-Share local Ollama models with a private group, behind one OpenAI-compatible endpoint.
+A private club for local inference. Share models with a trusted group, behind one OpenAI-compatible endpoint.

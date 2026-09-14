@@ -4,6 +4,7 @@
 {{ $desc := site.Params.description }}
 {{ if .Description }}{{ $desc = .Description }}{{ else if .Params.lead }}{{ $desc = .Params.lead }}{{ else if eq .Section "speakeasy" }}{{ with site.GetPage "/speakeasy" }}{{ $desc = .Description }}{{ end }}{{ end }}
 <meta name="description" content="{{ $desc }}">
+<meta name="theme-color" content="#0b0d0c">
 <link rel="canonical" href="{{ .Permalink }}">
 
 <meta property="og:title" content="{{ if .IsHome }}{{ site.Title }}{{ else if and (eq .Type "speakeasy") (eq .Kind "section") }}Speakeasy{{ else }}{{ .Title }}{{ end }}">
@@ -21,7 +22,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Josefin+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cinzel+Decorative:wght@400;700&family=IBM+Plex+Mono:wght@400;500;600&family=Josefin+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 {{ $css := resources.Get "css/main.scss" | toCSS | minify | fingerprint }}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">

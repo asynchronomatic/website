@@ -1,8 +1,8 @@
 ---
-title: Models view
+title: Mesh
 weight: 20
-image: images/model_view.png
-alt: "Models view: table of advertised models with nemotron-3.5-lightning expanded to specs, capabilities, and providing nodes"
+image: images/mesh-view.jpeg
+alt: "Mesh panel: members on a graph with direct and relay links"
 ---
 
-The Models panel lists every advertised model, which nodes serve it, and expand-in-place details.
+Members and how they connect. Solid links are direct; dashed links go through the relay.

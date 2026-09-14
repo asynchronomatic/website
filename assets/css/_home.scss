@@ -1,14 +1,26 @@
 .hero {
   position: relative;
+  isolation: isolate;
   min-height: Min(56vh, 520px);
   display: flex;
   align-items: flex-end;
   padding: 3.25rem 0 2.75rem;
   overflow-x: hidden;
   background:
-    linear-gradient(180deg, rgba(12, 10, 8, 0.35) 0%, rgba(12, 10, 8, 0.82) 55%, var(--bg) 100%),
+    linear-gradient(180deg, rgba(11, 13, 12, 0.35) 0%, rgba(11, 13, 12, 0.82) 55%, var(--bg) 100%),
     var(--hero-image) center 30% / cover no-repeat;
   border-bottom: 1px solid var(--accent);
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(115deg, rgba(201, 242, 122, 0.45) 0%, rgba(122, 208, 201, 0.35) 55%, rgba(11, 13, 12, 0.2) 100%);
+  mix-blend-mode: color;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .hero-inner {
@@ -20,9 +32,11 @@
 }
 
 .hero h1 {
-  font-size: clamp(2rem, 6vw, 3.6rem);
-  letter-spacing: 0.16em;
-  line-height: 1.05;
+  font-family: var(--font-hero);
+  font-weight: 400;
+  font-size: clamp(2.1rem, 6.2vw, 3.8rem);
+  letter-spacing: 0.06em;
+  line-height: 1.12;
   margin: 0 0 0.5rem;
   text-shadow: 0 8px 32px rgba(0, 0, 0, 0.65);
 }
@@ -99,9 +113,15 @@
   font-size: 0.95rem;
 }
 
+.screenshots .section-inner {
+  width: Min(1280px, calc(100% - 2.5rem));
+  max-width: calc(100vw - 2.5rem);
+}
+
 .shot-grid {
   display: grid;
-  gap: 2rem;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
 }
 
 .shot-grid figure {
@@ -111,6 +131,7 @@
 }
 
 .shot-grid img {
+  display: block;
   width: 100%;
   border-bottom: 1px solid var(--border);
 }
@@ -193,7 +214,7 @@
   padding: 3rem 1.5rem;
   border: 1px solid var(--accent);
   background:
-    linear-gradient(180deg, rgba(212, 175, 55, 0.08), transparent 55%),
+    linear-gradient(180deg, rgba(201, 242, 122, 0.08), transparent 55%),
     var(--bg-panel);
 }
 
@@ -216,11 +237,11 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(12, 10, 8, 0.9) 0%, rgba(12, 10, 8, 0.5) 48%, transparent 78%);
+    background: linear-gradient(180deg, rgba(11, 13, 12, 0.9) 0%, rgba(11, 13, 12, 0.5) 48%, transparent 78%);
     pointer-events: none;
     z-index: 0;
   }
-  .hero h1 { font-size: 8vw; letter-spacing: 0.08em; }
+  .hero h1 { font-size: 7.4vw; letter-spacing: 0.04em; }
   .hero-tag { max-width: none; width: 100%; }
   .hero-actions .btn { padding: 0.65rem 1rem; letter-spacing: 0.1em; }
   .promise { padding-inline: 1.25rem; }

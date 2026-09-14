@@ -1,6 +1,6 @@
 ---
 title: Advertise over the mesh
-weight: 30
+weight: 40
 ---
 
-The proxy registers with admin, learns relay multiaddrs, and publishes exported models. Peers fetch each other’s model lists over libp2p streams (`/.mesh/*`).
+Peers publish the inference models they export. Others see those models as targets. Idle weights stay off the mesh when export is pinned.
