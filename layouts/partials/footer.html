@@ -6,7 +6,7 @@
       <img src="{{ . | relURL }}" width="28" height="28" alt="">
       {{ end }}
       <div>
-        <p class="footer-name">{{ .Title }}</p>
+        <p class="footer-name">{{ partial "wordmark.html" }}</p>
         {{ $tag := .Params.tag }}
         {{ if and (eq $.Section "speakeasy") .Params.speakeasy_tag }}
           {{ $tag = .Params.speakeasy_tag }}

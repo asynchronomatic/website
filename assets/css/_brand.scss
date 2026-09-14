@@ -1,16 +1,26 @@
-.house-wordmark .async {
-  color: var(--teal);
+.wm-async { color: var(--teal); }
+.wm-chroma { color: var(--accent); }
+.wm-join {
+  background-image: linear-gradient(90deg, var(--accent) 0%, var(--accent) 35%, var(--teal) 65%, var(--teal) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 3px 8px rgba(201, 242, 122, 0.55));
+}
+
+.house-wordmark .wm-join {
+  filter: drop-shadow(0 4px 12px rgba(201, 242, 122, 0.65)) drop-shadow(0 3px 10px rgba(122, 208, 201, 0.4));
 }
 
 .house-hero {
   background:
-    linear-gradient(180deg, rgba(12, 10, 8, 0.88) 0%, rgba(12, 10, 8, 0.62) 42%, rgba(12, 10, 8, 0.94) 100%),
+    linear-gradient(180deg, rgba(11, 13, 12, 0.88) 0%, rgba(11, 13, 12, 0.62) 42%, rgba(11, 13, 12, 0.94) 100%),
     var(--hero-image) center 78% / cover no-repeat;
 }
 
 .house-hero .house-wordmark {
-  font-size: clamp(1.7rem, 5.5vw, 3.2rem);
-  letter-spacing: 0.1em;
+  font-size: clamp(1.85rem, 5.8vw, 3.5rem);
+  letter-spacing: 0.04em;
 }
 
 .vision .section-inner {
@@ -50,7 +60,7 @@
   margin: 0;
   background: var(--bg-panel);
   border: 1px solid var(--accent);
-  box-shadow: inset 0 0 0 6px var(--bg), inset 0 0 0 7px rgba(212, 175, 55, 0.35);
+  box-shadow: inset 0 0 0 6px var(--bg), inset 0 0 0 7px rgba(201, 242, 122, 0.35);
 }
 
 .deco-frame img {
@@ -198,8 +208,8 @@
   }
 
   .house-hero .house-wordmark {
-    font-size: 6.2vw;
-    letter-spacing: 0.04em;
+    font-size: 6.4vw;
+    letter-spacing: 0.02em;
   }
 
   .vision .section-head h2 {
@@ -222,6 +232,6 @@
   .product-grid { grid-template-columns: 1fr; }
 
   .deco-frame {
-    box-shadow: inset 0 0 0 4px var(--bg), inset 0 0 0 5px rgba(212, 175, 55, 0.35);
+    box-shadow: inset 0 0 0 4px var(--bg), inset 0 0 0 5px rgba(201, 242, 122, 0.35);
   }
 }

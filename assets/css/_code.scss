@@ -30,14 +30,14 @@
 
 .copy-btn:hover { color: var(--accent); border-color: var(--accent); }
 
-/* Chroma classes — deco gold on near-black */
+/* Chroma classes — lime / teal on green-black */
 .chroma { color: var(--text); background: transparent; }
 .chroma .c, .chroma .ch, .chroma .cm, .chroma .c1, .chroma .cs { color: var(--text-dim); font-style: italic; }
 .chroma .k, .chroma .kc, .chroma .kd, .chroma .kn, .chroma .kp, .chroma .kr, .chroma .kt { color: var(--accent); }
-.chroma .s, .chroma .sa, .chroma .sb, .chroma .sc, .chroma .dl, .chroma .sd, .chroma .s2, .chroma .se, .chroma .sh, .chroma .si, .chroma .sx, .chroma .sr, .chroma .s1, .chroma .ss { color: #e0c27a; }
+.chroma .s, .chroma .sa, .chroma .sb, .chroma .sc, .chroma .dl, .chroma .sd, .chroma .s2, .chroma .se, .chroma .sh, .chroma .si, .chroma .sx, .chroma .sr, .chroma .s1, .chroma .ss { color: var(--teal); }
 .chroma .m, .chroma .mb, .chroma .mf, .chroma .mh, .chroma .mi, .chroma .il, .chroma .mo { color: var(--warn); }
 .chroma .n, .chroma .na, .chroma .nb, .chroma .bp, .chroma .nc, .chroma .no, .chroma .nd, .chroma .ni, .chroma .ne, .chroma .nf, .chroma .fm, .chroma .nl, .chroma .nn, .chroma .nx, .chroma .py, .chroma .nt, .chroma .nv, .chroma .vc, .chroma .vg, .chroma .vi, .chroma .vm { color: var(--text); }
 .chroma .o, .chroma .ow { color: var(--text-muted); }
 .chroma .p { color: var(--text-muted); }
-.chroma .err { color: #f3e6c8; background: rgba(163, 59, 59, 0.25); }
+.chroma .err { color: #e8efe6; background: rgba(163, 59, 59, 0.25); }
 .chroma .lnt, .chroma .ln { color: var(--text-dim); }
